@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  webserver:
+    container_name: nginx
+    image: nginx:alpine
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ./backend:/var/www/app
+      - ./frontend/static:/var/www/static
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    tty: true
+    links:
+      - backend
+    networks:
+      - app-network
+
+
+  backend:
+    container_name: php_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/var/www/app
+    networks:
+      - app-network
+
+#  frontend:
+#    container_name: js_app
+#    build:
+#      context: ./frontend
+#      dockerfile: Dockerfile
+
+networks:
+  app-network:
+    driver: bridge
