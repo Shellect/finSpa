@@ -1,2 +1,12 @@
 {
+  "autoload": {
+    "psr-4": {
+      "engine\\": "engine/",
+      "app\\": "app/"
+    }
+  },
+  "require": {
+    "ext-pdo": "*",
+    "phpunit/phpunit": "^10.2"
+  }
 }

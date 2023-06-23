@@ -1,5 +1,7 @@
 FROM php:8.2-fpm
 
+RUN docker-php-ext-install pdo pdo_mysql
+
 ARG HOST_UID=1000
 ARG HOST_GID=1000
 ARG UNAME=www-data

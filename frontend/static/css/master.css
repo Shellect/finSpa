@@ -1,7 +1,25 @@
-body {
-  font-family: Verdana, Geneva, sans-serif;
-  font-size: 14px;
-  background: #f2f2f2;
+#root{
+  background-color: #212529;
+  min-height: 100vh;
+}
+
+.bg-body-yellow{
+  background: #f5ba1a;
+}
+
+.avatar{
+  background-color: white;
+  padding: .4em .5em;
+  margin-left: .4em;
+  margin-right: .4em;
+  border-radius: 50%;
+}
+
+.homepage{
+  height: 100vh;
+  background-image: url("/static/images/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .clearfix:after {
@@ -13,9 +31,8 @@ body {
 }
 
 .form_wrapper {
-  background: #fff;
-  width: 400px;
-  max-width: 100%;
+  background-color: white;
+  max-width: 400px;
   box-sizing: border-box;
   padding: 25px;
   margin: 8% auto 0;
@@ -27,7 +44,6 @@ body {
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   -webkit-transform-origin: 50% 0;
   transform-origin: 50% 0;
-  -webkit-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1);
   -webkit-transition: none;
   transition: none;
@@ -80,10 +96,10 @@ body {
   text-align: center;
   width: 30px;
 }
-.form_wrapper .input_field > span > i {
+.form_wrapper .input_field > span > * {
   padding-top: 10px;
 }
-.form_wrapper .textarea_field > span > i {
+.form_wrapper .textarea_field > span > * {
   padding-top: 10px;
 }
 .form_wrapper input[type=text], .form_wrapper input[type=email], .form_wrapper input[type=password] {
@@ -224,7 +240,7 @@ body {
   display: inline-block;
   width: 100%;
   height: 35px;
-  padding: 0px 15px;
+  padding: 0 15px;
   cursor: pointer;
   color: #7b7b7b;
   border: 1px solid #cccccc;
@@ -300,88 +316,42 @@ body {
     width: 7px;
   }
 }
-@-webkit-keyframes expand {
-  0% {
-    -webkit-transform: scale3d(1, 0, 1);
-    opacity: 0;
-  }
-  25% {
-    -webkit-transform: scale3d(1, 1.2, 1);
-  }
-  50% {
-    -webkit-transform: scale3d(1, 0.85, 1);
-  }
-  75% {
-    -webkit-transform: scale3d(1, 1.05, 1);
-  }
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-    opacity: 1;
-  }
-}
+
 @keyframes expand {
   0% {
-    -webkit-transform: scale3d(1, 0, 1);
     transform: scale3d(1, 0, 1);
     opacity: 0;
   }
   25% {
-    -webkit-transform: scale3d(1, 1.2, 1);
     transform: scale3d(1, 1.2, 1);
   }
   50% {
-    -webkit-transform: scale3d(1, 0.85, 1);
     transform: scale3d(1, 0.85, 1);
   }
   75% {
-    -webkit-transform: scale3d(1, 1.05, 1);
     transform: scale3d(1, 1.05, 1);
   }
   100% {
-    -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
     opacity: 1;
   }
 }
-@-webkit-keyframes bounce {
-  0% {
-    -webkit-transform: translate3d(0, -25px, 0);
-    opacity: 0;
-  }
-  25% {
-    -webkit-transform: translate3d(0, 10px, 0);
-  }
-  50% {
-    -webkit-transform: translate3d(0, -6px, 0);
-  }
-  75% {
-    -webkit-transform: translate3d(0, 2px, 0);
-  }
-  100% {
-    -webkit-transform: translate3d(0, 0, 0);
-    opacity: 1;
-  }
-}
+
 @keyframes bounce {
   0% {
-    -webkit-transform: translate3d(0, -25px, 0);
     transform: translate3d(0, -25px, 0);
     opacity: 0;
   }
   25% {
-    -webkit-transform: translate3d(0, 10px, 0);
     transform: translate3d(0, 10px, 0);
   }
   50% {
-    -webkit-transform: translate3d(0, -6px, 0);
     transform: translate3d(0, -6px, 0);
   }
   75% {
-    -webkit-transform: translate3d(0, 2px, 0);
     transform: translate3d(0, 2px, 0);
   }
   100% {
-    -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     opacity: 1;
   }

@@ -8,10 +8,13 @@ services:
       - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
       - ./backend:/var/www/app
       - ./frontend/static:/var/www/static
+      - ./nginx-selfsigned.crt:/etc/ssl/certs/nginx-selfsigned.crt
+      - ./nginx-selfsigned.key:/etc/ssl/private/nginx-selfsigned.key
     ports:
       - "8080:80"
-    restart: unless-stopped
-    tty: true
+      - "443:443"
+#    restart: unless-stopped
+#    tty: true
     links:
       - backend
     networks:
@@ -28,11 +31,24 @@ services:
     networks:
       - app-network
 
-#  frontend:
-#    container_name: js_app
-#    build:
-#      context: ./frontend
-#      dockerfile: Dockerfile
+  db:
+    image: mysql:latest
+    container_name: db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_USER: ${MYSQL_USERNAME}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+    networks:
+      - app-network
 
 networks:
   app-network:
